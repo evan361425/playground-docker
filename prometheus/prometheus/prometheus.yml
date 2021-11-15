@@ -36,4 +36,4 @@ scrape_configs:
     scrape_interval: 30s
 
     static_configs:
-      - targets: ["172.21.8.57:8080"]
+      - targets: ["host.docker.internal:8080"]
