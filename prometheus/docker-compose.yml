@@ -9,6 +9,7 @@ services:
     image: prom/prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
+      - ./certs/:/etc/certs/
       - prometheus_data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
