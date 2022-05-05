@@ -1,0 +1,25 @@
+{
+  "name": "playground-kafka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evan361425/playground-kafka.git"
+  },
+  "keywords": [
+    "playground"
+  ],
+  "author": "Lu Shueh Chou <evanlu361425@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evan361425/playground-kafka/issues"
+  },
+  "homepage": "https://github.com/evan361425/playground-kafka#readme",
+  "dependencies": {
+    "kafkajs": "^1.16.0"
+  }
+}
