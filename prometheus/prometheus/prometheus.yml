@@ -20,18 +20,14 @@ rule_files:
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 
-  - job_name: 'vault'
+  - job_name: "test"
     scrape_interval: 30s
-    metrics_path: "/v1/sys/metrics"
+    metrics_path: "/metrics"
     params:
-      format: ['prometheus']
-    scheme: https
-    tls_config:
-      ca_file: /etc/certs/root.crt
-    authorization:
-      credentials_file: "/etc/certs/vault-token.txt"
+      format: ["prometheus"]
+    scheme: http
     static_configs:
-      - targets: ['data-encryption.104dc-dev.com']
+      - targets: ["test.example.com"]
 
   # - job_name: "prometheus"
 
