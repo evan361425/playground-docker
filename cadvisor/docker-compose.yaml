@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  cadv:
+    image: cadvisor:test
+    privileged: true
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg
+    command:
+      - '-logtostderr'
+      # - '-v=1'
+      - '-disable_metrics=accelerator,cpu_topology,disk,diskIO,memory_numa,network,tcp,udp,percpu,sched,process,hugetlb,referenced_memory,resctrl'
+  lb:
+    build: '.'
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/cadvisor.json:/var/cadvisor/cadvisor.json
+      - ./log/nginx:/var/log/nginx

@@ -1,0 +1,37 @@
+{
+  "endpoint": "http://lb:3001/ifr_status",
+  "metrics_config": [
+    {
+      "name": "nginx_connections",
+      "metric_type": "gauge",
+      "units": "number of active connections",
+      "data_type": "int",
+      "polling_frequency": 10,
+      "regex": "Active connections: ([0-9]+)"
+    },
+    {
+      "name": "nginx_reading",
+      "metric_type": "gauge",
+      "units": "number of reading connections",
+      "data_type": "int",
+      "polling_frequency": 10,
+      "regex": "Reading: ([0-9]+) .*"
+    },
+    {
+      "name": "nginx_writing",
+      "metric_type": "gauge",
+      "units": "number of writing connections",
+      "data_type": "int",
+      "polling_frequency": 10,
+      "regex": ".* Writing: ([0-9]+) .*"
+    },
+    {
+      "name": "nginx_waiting",
+      "metric_type": "gauge",
+      "units": "number of waiting connections",
+      "data_type": "int",
+      "polling_frequency": 10,
+      "regex": ".* Waiting: ([0-9]+)"
+    }
+  ]
+}
