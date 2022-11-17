@@ -52,6 +52,21 @@ The only different with Busted was all argument must prefix with `t_`, for examp
 -   `--t_verbose`
 -   `--t_pattern=_spec`
 
+### Lint
+
+Custom argument must prefix with `f_`.
+
+```bash
+$ docker run --rm -t -v "$PWD:/data" shuehchoulu/lua-cook:${VERSION} lua-project.json format --f_check
+===== Formatting =====
+... config data ...
+formatting: /data/src/main.lua
+    === Success ===
+```
+
+-   [`--check`](https://github.com/Koihik/LuaFormatter#usage) Non-zero return if formatting is needed.
+**This is default setting**.
+
 ### Format
 
 Custom argument must prefix with `f_`.
@@ -65,15 +80,3 @@ formatting: /data/src/main.lua
 ```
 
 -   [`--in-place`](https://github.com/Koihik/LuaFormatter#usage) Reformats in-place
-
-### Lint
-
-```bash
-$ docker run --rm -t -v "$PWD:/data" shuehchoulu/lua-cook:${VERSION} lua-project.json format --f_check
-===== Formatting =====
-... config data ...
-formatting: /data/src/main.lua
-    === Success ===
-```
-
--   [`--check`](https://github.com/Koihik/LuaFormatter#usage) Non-zero return if formatting is needed

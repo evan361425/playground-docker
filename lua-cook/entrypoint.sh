@@ -32,7 +32,11 @@ if [ ! "$action" = 'test' ]; then
   args=$(get_args format)
   vargs=$(get_vargs format)
   
-  format_custom=$(echo "$custom" | tr ' ' '\n' | xargs echo | grep '^--f_' | cut -c 1-2,5- | tr '\n' ' ')
+  format_custom=$(echo "$custom" | xargs echo | tr ' ' '\n' | grep '^--f_' | cut -c 1-2,5- | sed 's/--check//g')
+  if ! echo "$format_custom" | grep -q '^--in-place$'; then
+    format_custom="$format_custom --check"
+  fi
+  format_custom=$(echo "$format_custom" | xargs echo)
 
   echo '===== Formatting ====='
   sh -c "lua-format --dump-config $args $vargs $format_custom"
