@@ -10,6 +10,8 @@ It use [Busted](https://lunarmodules.github.io/busted/) to test and
 docker run --rm -t -v "$PWD:/data" shuehchoulu/lua-cook:${VERSION} lua-project.json
 ```
 
+Available in [Docker Hub](https://hub.docker.com/r/shuehchoulu/lua-cook) and [GitHub Packages](https://github.com/evan361425/playground-docker/pkgs/container/lua-cook)
+
 ## Configuration
 
 You must give it configuration JSON file, for example `lua-project.json`:
