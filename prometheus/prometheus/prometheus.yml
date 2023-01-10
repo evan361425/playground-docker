@@ -27,7 +27,7 @@ scrape_configs:
       format: ["prometheus"]
     scheme: http
     static_configs:
-      - targets: ["test.example.com"]
+      - targets: ["172.24.0.141:8080"]
 
   # - job_name: "cadvisor-stg"
   #   scrape_interval: 30s
