@@ -1,0 +1,17 @@
+services:
+  redis:
+    image: redis:6.0
+    volumes:
+      - ./redis:/redis
+    # apt-get update && apt-get install -y tcpdump
+    # tcpdump -f 'tcp port 6379' -w - | tee evan.pcap | tcpdump -i -
+    command: redis-server /redis/redis.conf
+  php:
+    build: 'php/.'
+    volumes:
+      - ./php:/var/www/html/
+      # - ./apache:/etc/apache2
+    # php -e -f /evan/index.php
+    command: tail -f /dev/null
+    depends_on:
+      - redis
